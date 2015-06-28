@@ -8,3 +8,13 @@ C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny.Tests\bin\Debug\New
 C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny.Tests\obj\Debug\SharpDestiny.Tests.dll
 C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny.Tests\obj\Debug\SharpDestiny.Tests.pdb
 C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny.Tests\bin\Debug\SharpCommon.Extension.dll
+C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny.Tests\bin\Debug\SharpDestiny.Tests.dll
+C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny.Tests\bin\Debug\SharpDestiny.Tests.pdb
+C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny.Tests\bin\Debug\SharpDestiny.dll
+C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny.Tests\bin\Debug\SharpCommon.Extension.dll
+C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny.Tests\bin\Debug\SharpDestiny.pdb
+C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny.Tests\obj\Debug\SharpDestiny.Tests.csprojResolveAssemblyReference.cache
+C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny.Tests\obj\Debug\SharpDestiny.Tests.dll
+C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny.Tests\obj\Debug\SharpDestiny.Tests.pdb
