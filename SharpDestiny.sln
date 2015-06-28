@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5A3ED9
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDestiny.Web", "SharpDestiny.Web\SharpDestiny.Web.csproj", "{47387F13-72A7-4ED0-8A3E-AF8E4C5E1C2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{7EDD6008-A43C-482C-9D9B-8824C719E1C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EDD6008-A43C-482C-9D9B-8824C719E1C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EDD6008-A43C-482C-9D9B-8824C719E1C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47387F13-72A7-4ED0-8A3E-AF8E4C5E1C2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47387F13-72A7-4ED0-8A3E-AF8E4C5E1C2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47387F13-72A7-4ED0-8A3E-AF8E4C5E1C2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47387F13-72A7-4ED0-8A3E-AF8E4C5E1C2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
