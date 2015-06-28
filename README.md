@@ -1,4 +1,4 @@
-#<h3>SharpDestiny</h3>
+#SharpDestiny
 SharpDestiny is a C# library for parsing destiny related information from bungie api.
 
 #<h3>Who Uses Sharp Destiny</h3>
