@@ -1,0 +1,11 @@
+C:\Dropbox\DEV\GITHUB\BungieNetPlatform\BungieNetPlatform\BungieNetPlatform.Tests\bin\Debug\BungieNetPlatform.Tests.dll
+C:\Dropbox\DEV\GITHUB\BungieNetPlatform\BungieNetPlatform\BungieNetPlatform.Tests\bin\Debug\BungieNetPlatform.Tests.pdb
+C:\Dropbox\DEV\GITHUB\BungieNetPlatform\BungieNetPlatform\BungieNetPlatform.Tests\bin\Debug\BungieNetPlatform.dll
+C:\Dropbox\DEV\GITHUB\BungieNetPlatform\BungieNetPlatform\BungieNetPlatform.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Dropbox\DEV\GITHUB\BungieNetPlatform\BungieNetPlatform\BungieNetPlatform.Tests\bin\Debug\Extensions.dll
+C:\Dropbox\DEV\GITHUB\BungieNetPlatform\BungieNetPlatform\BungieNetPlatform.Tests\bin\Debug\BungieNetPlatform.pdb
+C:\Dropbox\DEV\GITHUB\BungieNetPlatform\BungieNetPlatform\BungieNetPlatform.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Dropbox\DEV\GITHUB\BungieNetPlatform\BungieNetPlatform\BungieNetPlatform.Tests\bin\Debug\Extensions.pdb
+C:\Dropbox\DEV\GITHUB\BungieNetPlatform\BungieNetPlatform\BungieNetPlatform.Tests\obj\Debug\BungieNetPlatform.Tests.csprojResolveAssemblyReference.cache
+C:\Dropbox\DEV\GITHUB\BungieNetPlatform\BungieNetPlatform\BungieNetPlatform.Tests\obj\Debug\BungieNetPlatform.Tests.dll
+C:\Dropbox\DEV\GITHUB\BungieNetPlatform\BungieNetPlatform\BungieNetPlatform.Tests\obj\Debug\BungieNetPlatform.Tests.pdb

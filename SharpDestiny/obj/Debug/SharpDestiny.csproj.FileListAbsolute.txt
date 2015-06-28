@@ -1,0 +1,8 @@
+C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny\bin\Debug\SharpDestiny.dll
+C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny\bin\Debug\SharpDestiny.pdb
+C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny\bin\Debug\Newtonsoft.Json.dll
+C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny\bin\Debug\Newtonsoft.Json.xml
+C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny\obj\Debug\SharpDestiny.dll
+C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny\obj\Debug\SharpDestiny.pdb
+C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny\obj\Debug\SharpDestiny.csprojResolveAssemblyReference.cache
+C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny\bin\Debug\SharpCommon.Extension.dll

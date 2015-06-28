@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{025DAC8F-6560-49B4-ADAF-456802A32B79}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SharpDestiny</RootNamespace>
+    <AssemblyName>SharpDestiny</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpCommon.Extension, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpCommon.Extension.1.0.0.0\lib\net45\SharpCommon.Extension.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Platform\Model\Attribute.cs" />
+    <Compile Include="Platform\Model\BungieAccount.cs" />
+    <Compile Include="Platform\Model\BungieNet.cs" />
+    <Compile Include="Platform\Model\CharacterClass.cs" />
+    <Compile Include="Platform\Model\Context.cs" />
+    <Compile Include="Platform\Model\CurrentUser.cs" />
+    <Compile Include="Destiny\Model\DestinyAccount.cs" />
+    <Compile Include="Destiny\Model\ArtRegions.cs" />
+    <Compile Include="Destiny\Model\BaseStat.cs" />
+    <Compile Include="Destiny\Model\Buckets.cs" />
+    <Compile Include="Destiny\Model\Character.cs" />
+    <Compile Include="Destiny\Model\CharacterBase.cs" />
+    <Compile Include="Destiny\Model\Currency.cs" />
+    <Compile Include="Destiny\Model\CustomDyeExpression.cs" />
+    <Compile Include="Destiny\Model\Customization.cs" />
+    <Compile Include="Destiny\Model\DefaultDye.cs" />
+    <Compile Include="Destiny\Model\Definitions.cs" />
+    <Compile Include="Destiny\Model\Dye.cs" />
+    <Compile Include="Destiny\Model\Equipment.cs" />
+    <Compile Include="Destiny\Model\Equippable.cs" />
+    <Compile Include="Destiny\Model\EquippingBlock.cs" />
+    <Compile Include="Destiny\Model\LevelProgression.cs" />
+    <Compile Include="Destiny\Model\LockedDye.cs" />
+    <Compile Include="Destiny\Model\Membership.cs" />
+    <Compile Include="Destiny\Model\MessageData.cs" />
+    <Compile Include="Destiny\Model\Node.cs" />
+    <Compile Include="Destiny\Model\PeerView.cs" />
+    <Compile Include="Destiny\Model\Perk.cs" />
+    <Compile Include="Destiny\Model\Player.cs" />
+    <Compile Include="Destiny\Model\Inventory.cs" />
+    <Compile Include="Destiny\Model\Item.cs" />
+    <Compile Include="Destiny\Model\PrimaryBaseStat.cs" />
+    <Compile Include="Destiny\Model\PrimaryStat.cs" />
+    <Compile Include="Destiny\Model\Progression.cs" />
+    <Compile Include="Destiny\Model\Stat.cs" />
+    <Compile Include="Destiny\Model\STATAGILITY.cs" />
+    <Compile Include="Destiny\Model\STATARMOR.cs" />
+    <Compile Include="Destiny\Model\STATDEFENSE.cs" />
+    <Compile Include="Destiny\Model\STATDISCIPLINE.cs" />
+    <Compile Include="Destiny\Model\STATINTELLECT.cs" />
+    <Compile Include="Destiny\Model\STATLIGHT.cs" />
+    <Compile Include="Destiny\Model\STATOPTICS.cs" />
+    <Compile Include="Destiny\Model\STATRECOVERY.cs" />
+    <Compile Include="Destiny\Model\Stats.cs" />
+    <Compile Include="Destiny\Model\STATSTRENGTH.cs" />
+    <Compile Include="Destiny\Model\Step.cs" />
+    <Compile Include="Destiny\Model\UserInfo.cs" />
+    <Compile Include="Destiny\Model\Values.cs" />
+    <Compile Include="Platform\Enums\Acl.cs" />
+    <Compile Include="Platform\Enums\ActivityAggregationType.cs" />
+    <Compile Include="Platform\Enums\ActivityItemOrigin.cs" />
+    <Compile Include="Platform\Enums\ActivityQueryFilter.cs" />
+    <Compile Include="Platform\Enums\ActivityStatus.cs" />
+    <Compile Include="Platform\Enums\ActivityType.cs" />
+    <Compile Include="Platform\Enums\AffectedItemType.cs" />
+    <Compile Include="Platform\Enums\BucketCategory.cs" />
+    <Compile Include="Platform\Enums\BungieCredentialType.cs" />
+    <Compile Include="Platform\Enums\BungieMembershipType.cs" />
+    <Compile Include="Platform\Enums\ChatSecurity.cs" />
+    <Compile Include="Platform\Enums\ClientDeviceType.cs" />
+    <Compile Include="Platform\Enums\ContentDateRange.cs" />
+    <Compile Include="Platform\Enums\ContentSortBy.cs" />
+    <Compile Include="Platform\Enums\DamageType.cs" />
+    <Compile Include="Destiny\Enums\DestinyActivityModeType.cs" />
+    <Compile Include="Destiny\Enums\DestinyClass.cs" />
+    <Compile Include="Destiny\Enums\DestinyDefinitionType.cs" />
+    <Compile Include="Destiny\Enums\DestinyGender.cs" />
+    <Compile Include="Destiny\Enums\DestinyRace.cs" />
+    <Compile Include="Destiny\Enums\DestinyStatsGroupType.cs" />
+    <Compile Include="Destiny\Enums\DestinyTalentNodeState.cs" />
+    <Compile Include="Platform\Enums\EntityType.cs" />
+    <Compile Include="Platform\Enums\EquipFailureReason.cs" />
+    <Compile Include="Platform\Enums\ExternalService.cs" />
+    <Compile Include="Platform\Enums\ForumPostCategory.cs" />
+    <Compile Include="Platform\Enums\ForumPostPopularity.cs" />
+    <Compile Include="Platform\Enums\ForumPostSort.cs" />
+    <Compile Include="Platform\Enums\ForumsFlags.cs" />
+    <Compile Include="Platform\Enums\ForumTopicsCategoryFilters.cs" />
+    <Compile Include="Platform\Enums\ForumTopicsQuickDate.cs" />
+    <Compile Include="Platform\Enums\ForumTopicsSort.cs" />
+    <Compile Include="Platform\Enums\ForumType.cs" />
+    <Compile Include="Platform\Enums\FriendOnlineStatus.cs" />
+    <Compile Include="Platform\Enums\GroupDateRange.cs" />
+    <Compile Include="Platform\Enums\GroupHomepage.cs" />
+    <Compile Include="Platform\Enums\GroupMemberCountFilter.cs" />
+    <Compile Include="Platform\Enums\GroupSortBy.cs" />
+    <Compile Include="Platform\Enums\GroupTypeSearchFilter.cs" />
+    <Compile Include="Platform\Enums\IgnoredItemItype.cs" />
+    <Compile Include="Platform\Enums\IgnoreFlags.cs" />
+    <Compile Include="Platform\Enums\IgnoreLength.cs" />
+    <Compile Include="Platform\Enums\IgnoreStatus.cs" />
+    <Compile Include="Platform\Enums\InvitationResponseState.cs" />
+    <Compile Include="Platform\Enums\ItemBindStatus.cs" />
+    <Compile Include="Platform\Enums\MembershipOption.cs" />
+    <Compile Include="Platform\Enums\MembershipOption_Old.cs" />
+    <Compile Include="Platform\Enums\NotificationMethod.cs" />
+    <Compile Include="Platform\Enums\NotificationType.cs" />
+    <Compile Include="Platform\Enums\OfferRedeemMode.cs" />
+    <Compile Include="Platform\Enums\OptInFlags.cs" />
+    <Compile Include="Platform\Enums\PeriodType.cs" />
+    <Compile Include="Platform\Enums\PlatformErrorCodes.cs" />
+    <Compile Include="Platform\Enums\ReportResolutionStatus.cs" />
+    <Compile Include="Platform\Enums\RequestedPunishment.cs" />
+    <Compile Include="Platform\Enums\StatFeedbackState.cs" />
+    <Compile Include="Platform\Enums\SuccessMessages.cs" />
+    <Compile Include="Platform\Enums\SurveyCompletion.cs" />
+    <Compile Include="Platform\Enums\TextParameterSearchType.cs" />
+    <Compile Include="Platform\Enums\TierType.cs" />
+    <Compile Include="Platform\Enums\UnitType.cs" />
+    <Compile Include="Platform\Enums\VendorItemStatus.cs" />
+    <Compile Include="Platform\Model\Gender.cs" />
+    <Compile Include="Destiny\Model\IPlatformDestiny.cs" />
+    <Compile Include="Destiny\Model\PlatformDestiny.cs" />
+    <Compile Include="Platform\Model\Query.cs" />
+    <Compile Include="Platform\Model\Race.cs" />
+    <Compile Include="Platform\Response\BungieAccountResponse.cs" />
+    <Compile Include="Destiny\Response\ItemsResponse.cs" />
+    <Compile Include="Destiny\Response\MembershipResponse.cs" />
+    <Compile Include="Destiny\Response\AccountResponse.cs" />
+    <Compile Include="Destiny\Response\PlayerResponse.cs" />
+    <Compile Include="Platform\Model\Group.cs" />
+    <Compile Include="Platform\Model\GroupDetail.cs" />
+    <Compile Include="Platform\Model\GroupMembershipStatus.cs" />
+    <Compile Include="Platform\Model\GroupResponse.cs" />
+    <Compile Include="Platform\Model\IgnoreStatus.cs" />
+    <Compile Include="Platform\Model\IPlatform.cs" />
+    <Compile Include="Platform\Model\Message.cs" />
+    <Compile Include="Platform\Model\MessageDetail.cs" />
+    <Compile Include="Platform\Model\MessageParticipant.cs" />
+    <Compile Include="Platform\Model\ForumReplyNotification.cs" />
+    <Compile Include="Platform\Model\MessageNotification.cs" />
+    <Compile Include="Platform\Model\Notification.cs" />
+    <Compile Include="Platform\Model\Platform.cs" />
+    <Compile Include="Platform\Model\Post.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Platform\Model\RequestingUser.cs" />
+    <Compile Include="Platform\Response\ConversationResponse.cs" />
+    <Compile Include="Platform\Response\CreatePostResponse.cs" />
+    <Compile Include="Platform\Response\CurrentUserResponse.cs" />
+    <Compile Include="Platform\Response\GetCountsResponse.cs" />
+    <Compile Include="Platform\Response\GetMessagesResponse.cs" />
+    <Compile Include="Platform\Response\GetNotificationsResponse.cs" />
+    <Compile Include="Platform\Response\GetTopicsResponse.cs" />
+    <Compile Include="Platform\Response\Query.cs" />
+    <Compile Include="Platform\Response\QueryableResponse.cs" />
+    <Compile Include="Platform\Response\Response.cs" />
+    <Compile Include="Platform\Response\SaveMessageResponse.cs" />
+    <Compile Include="Platform\Response\UsersPagedResponse.cs" />
+    <Compile Include="Platform\Response\UserResponse.cs" />
+    <Compile Include="Platform\Model\Tag.cs" />
+    <Compile Include="Platform\Model\Tmp.cs" />
+    <Compile Include="Platform\Model\UsersPaged.cs" />
+    <Compile Include="Platform\Model\User.cs" />
+    <Compile Include="Responses\FollowersResponse.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

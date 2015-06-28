@@ -1,0 +1,10 @@
+C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny.Tests\obj\Debug\SharpDestiny.Tests.csprojResolveAssemblyReference.cache
+C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny.Tests\bin\Debug\SharpDestiny.Tests.dll
+C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny.Tests\bin\Debug\SharpDestiny.Tests.pdb
+C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny.Tests\bin\Debug\SharpDestiny.dll
+C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny.Tests\bin\Debug\SharpDestiny.pdb
+C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny.Tests\obj\Debug\SharpDestiny.Tests.dll
+C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny.Tests\obj\Debug\SharpDestiny.Tests.pdb
+C:\Users\vasile\Desktop\New folder\SharpDestiny\SharpDestiny.Tests\bin\Debug\SharpCommon.Extension.dll
