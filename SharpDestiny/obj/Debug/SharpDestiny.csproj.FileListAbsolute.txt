@@ -13,3 +13,4 @@ C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny\bin\Debug\SharpCommon.Extension.
 C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny\bin\Debug\Newtonsoft.Json.xml
 C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny\obj\Debug\SharpDestiny.dll
 C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny\obj\Debug\SharpDestiny.pdb
+C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny\obj\Debug\SharpDestiny.csprojResolveAssemblyReference.cache

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
+using Newtonsoft.Json.Linq;
 
 namespace SharpDestiny.Destiny.Model
 {
@@ -8,6 +9,36 @@ namespace SharpDestiny.Destiny.Model
     {
         [DataMember(Name = "itemHash")]
         public long ItemHash { get; set; }
+
+        [DataMember(Name = "itemName")]
+        public string ItemName { get; set; }
+
+        [DataMember(Name = "itemDescription")]
+        public string ItemDescription { get; set; }
+
+        [DataMember(Name = "icon")]
+        public string Icon { get; set; }
+
+        [DataMember(Name = "secondaryIcon")]
+        public string SecondaryIcon { get; set; }
+
+        [DataMember(Name = "hasAction")]
+        public bool HasAction { get; set; }
+
+        [DataMember(Name = "deleteOnAction")]
+        public bool DeleteOnAction { get; set; }
+
+        [DataMember(Name = "tierTypeName")]
+        public string TierTypeName { get; set; }
+
+        [DataMember(Name = "tierType")]
+        public int TierType { get; set; }
+
+        [DataMember(Name = "itemTypeName")]
+        public string ItemTypeName { get; set; }
+
+        [DataMember(Name = "bucketTypeHash")]
+        public long BucketTypeHash { get; set; }
 
         [DataMember(Name = "bindStatus")]
         public int BindStatus { get; set; }
@@ -83,5 +114,22 @@ namespace SharpDestiny.Destiny.Model
 
         [DataMember(Name = "transferStatus")]
         public int TransferStatus { get; set; }
+
+        public Item(JObject j)
+        {
+            ItemHash = j["itemHash"].Value<long>();
+            ItemName = j["itemName"] != null ? j["itemName"].Value<string>() : null;
+            ItemDescription = j["itemDescription"] != null ? j["itemDescription"].Value<string>() : null;
+            Icon = j["icon"] != null ? j["icon"].Value<string>() : null;
+            SecondaryIcon = j["secondaryIcon"] != null ? j["secondaryIcon"].Value<string>() : null;
+            TierTypeName = j["tierTypeName"] != null ? j["tierTypeName"].Value<string>() : null;
+            ItemTypeName = j["itemTypeName"] != null ? j["itemTypeName"].Value<string>() : null;
+
+            if (j["tierType"] != null)
+            {
+                TierType = j["tierType"].Value<int>();
+            }
+           
+        }
     }
 }

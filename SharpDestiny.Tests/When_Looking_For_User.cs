@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpDestiny.Destiny;
@@ -53,7 +54,11 @@ namespace SharpDestiny.Tests
             var accountId = "4611686018428828459";
             var charcaterId = "2305843009216514616";
 
-            var items = _platformDestiny.GetCharacterInventory(accountId, charcaterId);
+            Task<ItemsResponse> itemsResponse = _platformDestiny.GetCharacterInventory(accountId, charcaterId);
+
+            ICollection<Item> items = itemsResponse.Result.Items;
+
+            Assert.IsTrue(items.Count > 0);
         }
     }
 }

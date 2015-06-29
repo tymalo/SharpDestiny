@@ -18,9 +18,10 @@ namespace SharpDestiny.Destiny.Response
 
             if (j["Response"] != null)
             {
-                j["Response"]["definitions"]["items"].ForEach(uObj =>
+                j["Response"]["definitions"]["items"].ForEach(x =>
                 {
-                   
+                    var jObj = x.First.Value<JObject>();
+                    Items.Add(new Item(jObj));
                 });
             }
         }
