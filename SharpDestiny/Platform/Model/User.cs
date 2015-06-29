@@ -1,10 +1,9 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Globalization;
 using System.Runtime.Serialization;
-using SharpDestiny.Platform.Model;
+using Newtonsoft.Json.Linq;
 
-namespace SharpDestiny {
+namespace SharpDestiny.Platform.Model {
 
 	[DataContract]
 	public class User {

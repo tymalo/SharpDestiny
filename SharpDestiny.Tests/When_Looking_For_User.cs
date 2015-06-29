@@ -8,6 +8,7 @@ using SharpDestiny.Destiny.Response;
 using SharpDestiny.Platform;
 using SharpDestiny.Platform.Response;
 
+
 namespace SharpDestiny.Tests
 {
     [TestClass]
@@ -29,7 +30,7 @@ namespace SharpDestiny.Tests
             DestinyAccount destinyAccount = new DestinyAccount();
 
             //http://www.bungie.net/platform/User/SearchUsersPaged/superg00dadvice/1/
-            var displayName = "SuperG00dAdvice";
+            var displayName = "dddddddddd";
 
             var query = _platform.SearchUsersPaged(null,displayName, 1);
             UsersPagedResponse response = query.Result;
@@ -40,10 +41,12 @@ namespace SharpDestiny.Tests
 
                 Task<BungieAccountResponse> _bungieAccountResponse = _platformDestiny.BungieAccount(user.MemberId);
 
-                destinyAccount = _bungieAccountResponse.Result.BungieAccount.DestinyAccounts.First();
+                if (_bungieAccountResponse.Result.BungieAccount.DestinyAccounts.Any())
+                {
+                    destinyAccount = _bungieAccountResponse.Result.BungieAccount.DestinyAccounts.First();
 
-                var characterId = destinyAccount.Characters.First().CharacterId;
-
+                    var characterId = destinyAccount.Characters.First().CharacterId;
+                }
             }
             Assert.IsNotNull(destinyAccount);
         }

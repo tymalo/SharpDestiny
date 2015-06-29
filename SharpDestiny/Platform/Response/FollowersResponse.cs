@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using SharpCommon.Extension;
 using SharpDestiny.Common;
+using SharpDestiny.Platform.Model;
 
 namespace SharpDestiny.Platform.Response {
 	public class FollowersResponse : QueryableResponse {

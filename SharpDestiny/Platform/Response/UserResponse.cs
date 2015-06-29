@@ -1,5 +1,6 @@
 ﻿using System.Runtime.Serialization;
 using Newtonsoft.Json.Linq;
+using SharpDestiny.Platform.Model;
 
 namespace SharpDestiny.Platform.Response {
 	[DataContract]
