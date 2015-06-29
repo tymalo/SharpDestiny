@@ -53,7 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Platform\Model\Attribute.cs" />
+    <Compile Include="Common\Attribute.cs" />
     <Compile Include="Platform\Model\BungieAccount.cs" />
     <Compile Include="Platform\Model\BungieNet.cs" />
     <Compile Include="Platform\Model\CharacterClass.cs" />
@@ -166,7 +166,6 @@
     <Compile Include="Platform\Model\Gender.cs" />
     <Compile Include="Destiny\IPlatformDestiny.cs" />
     <Compile Include="Destiny\PlatformDestiny.cs" />
-    <Compile Include="Platform\Model\Query.cs" />
     <Compile Include="Platform\Model\Race.cs" />
     <Compile Include="Platform\Response\BungieAccountResponse.cs" />
     <Compile Include="Destiny\Response\ItemsResponse.cs" />
@@ -196,17 +195,16 @@
     <Compile Include="Platform\Response\GetMessagesResponse.cs" />
     <Compile Include="Platform\Response\GetNotificationsResponse.cs" />
     <Compile Include="Platform\Response\GetTopicsResponse.cs" />
-    <Compile Include="Platform\Response\Query.cs" />
-    <Compile Include="Platform\Response\QueryableResponse.cs" />
-    <Compile Include="Platform\Response\Response.cs" />
+    <Compile Include="Common\Query.cs" />
+    <Compile Include="Common\QueryableResponse.cs" />
+    <Compile Include="Common\Response.cs" />
     <Compile Include="Platform\Response\SaveMessageResponse.cs" />
     <Compile Include="Platform\Response\UsersPagedResponse.cs" />
     <Compile Include="Platform\Response\UserResponse.cs" />
     <Compile Include="Platform\Model\Tag.cs" />
-    <Compile Include="Platform\Model\Tmp.cs" />
     <Compile Include="Platform\Model\UsersPaged.cs" />
     <Compile Include="Platform\Model\User.cs" />
-    <Compile Include="Responses\FollowersResponse.cs" />
+    <Compile Include="Platform\Response\FollowersResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

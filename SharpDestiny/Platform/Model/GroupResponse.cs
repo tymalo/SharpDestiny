@@ -4,7 +4,7 @@ using Newtonsoft.Json.Linq;
 namespace SharpDestiny.Platform.Model {
 
 	[DataContract]
-	public class GroupResponse : Responses.Response {
+	public class GroupResponse : Common.Response {
 
 		[DataMember]
 		public Group Group;

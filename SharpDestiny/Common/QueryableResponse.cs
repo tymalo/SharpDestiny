@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using Newtonsoft.Json.Linq;
 
-namespace SharpDestiny.Responses {
+namespace SharpDestiny.Common {
 	[DataContract]
 	public class QueryableResponse : Response {
 
@@ -25,8 +20,6 @@ namespace SharpDestiny.Responses {
 			HasMore = j["Response"]["hasMore"].Value<bool>();
 			Query = new Query(j["Response"]["query"].Value<JObject>());
 			TotalResults = j["Response"]["totalResults"].Value<int>();
-
 		}
-
 	}
 }

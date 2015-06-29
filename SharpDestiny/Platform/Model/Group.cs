@@ -2,6 +2,7 @@
 using System.Runtime.Serialization;
 using Newtonsoft.Json.Linq;
 using SharpCommon.Extension;
+using SharpDestiny.Common;
 
 namespace SharpDestiny.Platform.Model {
 

@@ -1,9 +1,9 @@
-﻿using SharpDestiny.Destiny;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
+using SharpDestiny.Destiny.Model;
 
-namespace SharpDestiny.Responses.Destiny
+namespace SharpDestiny.Destiny.Response
 {
-    public class MembershipResponse: Response
+    public class MembershipResponse: Common.Response
     {
         public Membership Membership;
 

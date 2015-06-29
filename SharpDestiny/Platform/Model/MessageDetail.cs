@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Runtime.Serialization;
 using Newtonsoft.Json.Linq;
 
-namespace SharpDestiny {
+namespace SharpDestiny.Platform.Model {
 
 	[DataContract]
 	public class MessageDetail {
@@ -85,8 +82,6 @@ namespace SharpDestiny {
 			Status = j["status"].Value<int>();
 			Subject = j["subject"].Value<string>();
 			TotalMessageCount = j["totalMessageCount"].Value<int>();
-
 		}
-
 	}
 }

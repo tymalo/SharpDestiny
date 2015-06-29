@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace SharpDestiny {
+namespace SharpDestiny.Common {
 	[DataContract]
 	public class Attribute {
 

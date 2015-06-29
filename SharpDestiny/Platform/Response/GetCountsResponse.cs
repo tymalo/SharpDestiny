@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json.Linq;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
+using Newtonsoft.Json.Linq;
 
-namespace SharpDestiny.Responses {
+namespace SharpDestiny.Platform.Response {
 
 	[DataContract]
-	public class GetCountsResponse : Response {
+	public class GetCountsResponse : Common.Response {
 
 		[DataMember]
 		public int OnlineFriendCount;
@@ -15,7 +15,6 @@ namespace SharpDestiny.Responses {
 		[DataMember]
 		public int NotificationCount;
 
-
 		public GetCountsResponse(JObject j) : base(j) {
 
 			if(j["Response"] != null) {
@@ -23,8 +22,6 @@ namespace SharpDestiny.Responses {
 				MessageCount = j["Response"]["messageCount"].Value<int>();
 				NotificationCount = j["Response"]["notificationCount"].Value<int>();
 			}
-
 		}
-
 	}
 }

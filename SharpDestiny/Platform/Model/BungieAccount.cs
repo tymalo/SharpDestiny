@@ -3,7 +3,6 @@ using System.Linq;
 using System.Runtime.Serialization;
 using Newtonsoft.Json.Linq;
 using SharpCommon.Extension;
-using SharpDestiny.Destiny;
 using SharpDestiny.Destiny.Model;
 
 namespace SharpDestiny.Platform.Model

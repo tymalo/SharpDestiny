@@ -3,8 +3,8 @@ using System.Linq;
 using System.Runtime.Serialization;
 using Newtonsoft.Json.Linq;
 using SharpCommon.Extension;
+using SharpDestiny.Common;
 using SharpDestiny.Platform.Model;
-using SharpDestiny.Responses;
 
 namespace SharpDestiny.Platform.Response {
 	[DataContract]

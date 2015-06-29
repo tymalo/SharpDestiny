@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using SharpDestiny.Destiny.Response;
 using SharpDestiny.Platform.Response;
-using SharpDestiny.Responses.Destiny;
 
 namespace SharpDestiny.Destiny
 {
@@ -16,12 +15,9 @@ namespace SharpDestiny.Destiny
         Task<MembershipResponse> GetMembershipIdByDisplayName(int membershipType, string displayName);
 
         [OperationContract]
-        Task<PlayerResponse> SearchPlayer(int membershipType, string userName);
-
-        [OperationContract]
         Task<BungieAccountResponse> BungieAccount(int membershipId);
 
         [OperationContract]
-        Task<MembershipResponse> GetCharacterInventory(string accountId, string characterId);
+        Task<ItemsResponse> GetCharacterInventory(string accountId, string characterId);
     }
 }

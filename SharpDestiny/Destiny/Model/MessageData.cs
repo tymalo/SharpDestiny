@@ -1,7 +1,6 @@
-﻿
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
-namespace SharpDestiny.Destiny
+namespace SharpDestiny.Destiny.Model
 {
     [DataContract]
     public class MessageData

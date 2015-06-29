@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace SharpDestiny.Destiny
+namespace SharpDestiny.Destiny.Model
 {
     public class Player
     {

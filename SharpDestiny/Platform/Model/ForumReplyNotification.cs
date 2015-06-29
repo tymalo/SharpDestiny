@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
-namespace SharpDestiny.Notifications {
+namespace SharpDestiny.Platform.Model {
 	public class ForumReplyNotification {
 
 		public User Replier;
@@ -25,12 +21,10 @@ namespace SharpDestiny.Notifications {
 					ReplyCount != 1 ? "ies" : "y"
 				);
 			}
-
 			sb.AppendFormat(" to your post ({0})", PostId);
 
 			return sb.ToString();
 
 		}
-
 	}
 }

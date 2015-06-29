@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace SharpDestiny.Enums {
+namespace SharpDestiny.Destiny.Enums {
 
 	[DataContract]
 	public enum DestinyGender {
@@ -13,7 +13,5 @@ namespace SharpDestiny.Enums {
 
 		[EnumMember]
 		Unknown = 2
-
 	}
-
 }

@@ -1,7 +1,6 @@
-﻿using System;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
-namespace SharpDestiny.Enums {
+namespace SharpDestiny.Destiny.Enums {
 
 	[DataContract]
 	public enum DestinyDefinitionType {

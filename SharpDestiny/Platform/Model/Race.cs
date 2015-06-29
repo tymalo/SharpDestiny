@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace SharpDestiny
+namespace SharpDestiny.Platform.Model
 {
     [DataContract]
     public class Race

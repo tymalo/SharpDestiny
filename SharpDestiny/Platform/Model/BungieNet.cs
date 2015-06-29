@@ -1,8 +1,5 @@
 ﻿using System;
 
-//Import tool
-//http://jsbin.com/hohuzaqocati/7/edit
-
 namespace SharpDestiny.Platform.Model {
 	public static class BungieNet {
 
@@ -40,13 +37,11 @@ namespace SharpDestiny.Platform.Model {
 				return new string(BlankChar, MinPostLength);
 			}
 		}
-
 		public static string FixUrl(string url) {
 
 			//URI class may work, but it throws exceptions on bad formats
 			throw new NotImplementedException();
 
 		}
-
 	}
 }

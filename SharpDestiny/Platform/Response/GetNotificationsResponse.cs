@@ -1,12 +1,12 @@
-﻿using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
-using SharpDestiny.Notifications;
+using Newtonsoft.Json.Linq;
+using SharpDestiny.Platform.Model;
 
-namespace SharpDestiny.Responses {
+namespace SharpDestiny.Platform.Response {
 
 	[DataContract]
-	public class GetNotificationsResponse : Response {
+	public class GetNotificationsResponse : Common.Response {
 
 		[DataMember]
 		public int GroupActivityCount;

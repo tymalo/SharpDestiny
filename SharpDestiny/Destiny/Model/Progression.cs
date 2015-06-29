@@ -1,11 +1,10 @@
 using System.Runtime.Serialization;
 
-namespace SharpDestiny.Destiny
+namespace SharpDestiny.Destiny.Model
 {
     [DataContract]
     public class Progression
     {
-
         [DataMember(Name="dailyProgress")]
         public int DailyProgress { get; set; }
 

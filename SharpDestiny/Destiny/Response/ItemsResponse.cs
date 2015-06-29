@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 using Newtonsoft.Json.Linq;
 using SharpCommon.Extension;
+using SharpDestiny.Destiny.Model;
 
 namespace SharpDestiny.Destiny.Response
 {
-    public class ItemsResponse : Responses.Response
+    [DataContract]
+    public class ItemsResponse : Common.Response
     {
-        
+        [DataMember]
         public ICollection<Item> Items;
 
         public ItemsResponse(JObject j) : base(j)

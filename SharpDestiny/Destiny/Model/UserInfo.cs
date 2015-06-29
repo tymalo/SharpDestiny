@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Serialization;
 using Newtonsoft.Json.Linq;
 
-namespace SharpDestiny.Destiny
+namespace SharpDestiny.Destiny.Model
 {
     [DataContract]
     public class UserInfo

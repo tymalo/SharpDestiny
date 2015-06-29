@@ -1,10 +1,10 @@
-﻿using SharpDestiny.Destiny;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using SharpDestiny.Destiny.Model;
+using SharpDestiny.Common;
 
-namespace SharpDestiny.Responses.Destiny
+namespace SharpDestiny.Destiny.Response
 {
-    public class AccountResponse: Response
+    public class AccountResponse: Common.Response
     {
         public DestinyAccount DestinyAccount;
 

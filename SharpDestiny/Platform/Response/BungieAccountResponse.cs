@@ -5,7 +5,7 @@ using SharpDestiny.Platform.Model;
 namespace SharpDestiny.Platform.Response
 {
     [DataContract]
-    public class BungieAccountResponse : Responses.Response
+    public class BungieAccountResponse : Common.Response
     {
         [DataMember]
         public BungieAccount BungieAccount;

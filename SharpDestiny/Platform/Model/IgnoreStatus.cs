@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json.Linq;
-using System.Runtime.Serialization;
-using SharpDestiny.Enums;
+﻿using System.Runtime.Serialization;
+using Newtonsoft.Json.Linq;
+using SharpDestiny.Platform.Enums;
 
-namespace SharpDestiny {
+namespace SharpDestiny.Platform.Model {
 
 	[DataContract]
 	public class IgnoreStatus {

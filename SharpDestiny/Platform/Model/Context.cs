@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json.Linq;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
+using Newtonsoft.Json.Linq;
 
-namespace SharpDestiny {
+namespace SharpDestiny.Platform.Model {
 
 	[DataContract]
 	public class Context {
@@ -12,11 +12,9 @@ namespace SharpDestiny {
 		[DataMember]
 		public IgnoreStatus IgnoreStatus;
 
-
 		public Context(JObject j) {
 			Following = j["isFollowing"].Value<bool>();
 			IgnoreStatus = new IgnoreStatus(j["ignoreStatus"].Value<JObject>());
 		}
-
 	}
 }

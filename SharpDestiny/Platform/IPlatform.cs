@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using SharpDestiny.Enums;
+using SharpDestiny.Platform.Enums;
 using SharpDestiny.Platform.Model;
 using SharpDestiny.Platform.Response;
 using SharpDestiny.Responses;

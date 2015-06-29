@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.Serialization;
 
-namespace SharpDestiny.Enums {
+namespace SharpDestiny.Platform.Enums {
 
 	[DataContract]
 	public enum GroupHomepage {

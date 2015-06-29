@@ -1,9 +1,8 @@
-﻿using Newtonsoft.Json.Linq;
-using System.Runtime.Serialization;
-using System;
-using SharpDestiny.Enums;
+﻿using System.Runtime.Serialization;
+using Newtonsoft.Json.Linq;
+using SharpDestiny.Platform.Enums;
 
-namespace SharpDestiny.Responses {
+namespace SharpDestiny.Common {
 	
 	[DataContract]
 	public abstract class Response {

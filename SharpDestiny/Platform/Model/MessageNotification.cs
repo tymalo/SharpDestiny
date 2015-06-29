@@ -1,5 +1,5 @@
 ﻿
-namespace SharpDestiny.Notifications {
+namespace SharpDestiny.Platform.Model {
 	public class MessageNotification {
 
 		public User Sender;
@@ -10,6 +10,5 @@ namespace SharpDestiny.Notifications {
 				Sender.DisplayName
 			);
 		}
-
 	}
 }

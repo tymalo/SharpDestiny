@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace SharpDestiny.Enums {
+namespace SharpDestiny.Platform.Enums {
 
 	[DataContract]
 	public enum NotificationType {

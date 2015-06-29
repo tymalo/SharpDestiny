@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace SharpDestiny {
+namespace SharpDestiny.Platform.Model {
 
 	[DataContract]
 	public class Tag {
@@ -37,6 +37,5 @@ namespace SharpDestiny {
 		public override string ToString() {
 			return Normalized;
 		}
-
 	}
 }

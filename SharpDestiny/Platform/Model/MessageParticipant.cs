@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
 using Newtonsoft.Json.Linq;
 
-namespace SharpDestiny {
+namespace SharpDestiny.Platform.Model {
 	[DataContract]
 	public class MessageParticipant {
 
@@ -21,6 +21,5 @@ namespace SharpDestiny {
 			MembershipId = j["membershipId"].Value<int>();
 			Deleted = j["isDeleted"].Value<bool>();
 		}
-
 	}
 }

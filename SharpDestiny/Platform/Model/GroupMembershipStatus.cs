@@ -1,9 +1,9 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Runtime.Serialization;
+﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
+using Newtonsoft.Json.Linq;
 
-namespace SharpDestiny {
+namespace SharpDestiny.Platform.Model {
 
 	[DataContract]
 	public class GroupMembershipStatus {
@@ -11,9 +11,6 @@ namespace SharpDestiny {
 		[DataMember]
 		public User User;
 
-		/// <summary>
-		/// Unknown
-		/// </summary>
 		[DataMember]
 		public ICollection<int> ClanMembershipTypes;
 
@@ -73,7 +70,6 @@ namespace SharpDestiny {
 				if(ApprovedByMembershipId == 0) {
 					ApprovedByMembershipId = null;
 				}
-
 			}
 
 			if(r["deactivationDate"] != null) {
@@ -87,7 +83,6 @@ namespace SharpDestiny {
 				if(DeactivatedByMembershipId == 0) {
 					DeactivatedByMembershipId = null;
 				}
-
 			}
 
 			Rating = HasRated ? r["rating"].Value<int>() : (int?)null;

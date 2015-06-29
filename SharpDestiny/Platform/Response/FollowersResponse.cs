@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using SharpCommon.Extension;
+using SharpDestiny.Common;
 
-namespace SharpDestiny.Responses {
+namespace SharpDestiny.Platform.Response {
 	public class FollowersResponse : QueryableResponse {
 
 		public ICollection<User> Followers;
-
 
 		public FollowersResponse(JObject j) : base(j) {
 
@@ -16,8 +16,6 @@ namespace SharpDestiny.Responses {
 			if(j["Response"]["results"] != null) {
 				j["Response"]["results"].ForEach(u =>Followers.Add(new User(Extensions.Value<JObject>(u["user"]))));
 			}
-
 		}
-
 	}
 }

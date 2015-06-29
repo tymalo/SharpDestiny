@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Web;
+using Newtonsoft.Json.Linq;
 
-namespace SharpDestiny {
+namespace SharpDestiny.Platform.Model {
 
 	[DataContract]
 	public class Post {
@@ -208,8 +208,6 @@ namespace SharpDestiny {
 			LatestReplyPostId = j["latestReplyPostId"].Value<int>();
 			LatestReplyAuthorId = j["latestReplyAuthorId"].Value<int>();
 			IgnoreStatus = new IgnoreStatus(j["ignoreStatus"].Value<JObject>());
-
 		}
-
 	}
 }

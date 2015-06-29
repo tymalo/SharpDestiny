@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpDestiny.Destiny;
 using SharpDestiny.Destiny.Model;
+using SharpDestiny.Destiny.Response;
 using SharpDestiny.Platform;
 using SharpDestiny.Platform.Response;
 
@@ -44,6 +45,15 @@ namespace SharpDestiny.Tests
 
             }
             Assert.IsNotNull(destinyAccount);
+        }
+
+        [TestMethod]
+        public void WillLoadCharacterInventory()
+        {
+            var accountId = "4611686018428828459";
+            var charcaterId = "2305843009216514616";
+
+            var items = _platformDestiny.GetCharacterInventory(accountId, charcaterId);
         }
     }
 }

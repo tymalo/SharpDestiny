@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace SharpDestiny.Destiny
+namespace SharpDestiny.Destiny.Model
 {
     [DataContract]
     public class Item

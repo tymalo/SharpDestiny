@@ -1,11 +1,10 @@
 ﻿using System.Runtime.Serialization;
 
-namespace SharpDestiny.Destiny
+namespace SharpDestiny.Destiny.Model
 {
     [DataContract]
     public class Stat
     {
-
         [DataMember(Name="statHash")]
         public object StatHash { get; set; }
 

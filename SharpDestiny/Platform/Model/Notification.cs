@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
-using SharpDestiny.Enums;
+using Newtonsoft.Json.Linq;
+using SharpDestiny.Platform.Enums;
 
-namespace SharpDestiny.Notifications {
+namespace SharpDestiny.Platform.Model {
 
 	[DataContract]
 	public class Notification {
@@ -92,9 +92,5 @@ namespace SharpDestiny.Notifications {
 			return f;
 
 		}
-
-
-
-
 	}
 }

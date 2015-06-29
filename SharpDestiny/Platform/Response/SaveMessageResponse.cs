@@ -1,21 +1,18 @@
-﻿using Newtonsoft.Json.Linq;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
+using Newtonsoft.Json.Linq;
 
-namespace SharpDestiny.Responses {
+namespace SharpDestiny.Platform.Response {
 	[DataContract]
-	public class SaveMessageResponse : Response {
+	public class SaveMessageResponse : Common.Response {
 
 		[DataMember]
 		public int Id;
-
 
 		public SaveMessageResponse(JObject j) : base(j) {
 
 			if(j["Response"] != null) {
 				Id = j["Response"].Value<int>();
 			}
-
 		}
-
 	}
 }

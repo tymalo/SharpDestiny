@@ -5,12 +5,17 @@ using Newtonsoft.Json.Linq;
 using SharpDestiny.Destiny.Response;
 using SharpDestiny.Platform.Model;
 using SharpDestiny.Platform.Response;
-using SharpDestiny.Responses.Destiny;
 
 namespace SharpDestiny.Destiny
 {
     public class PlatformDestiny : IPlatformDestiny
     {
+        /// <summary>
+        /// http://www.bungie.net/platform/Destiny/2/Account/4611686018428828459/
+        /// </summary>
+        /// <param name="membershipType">2</param>
+        /// <param name="membershipId">4611686018428828459</param>
+        /// <returns></returns>
         public async Task<AccountResponse> Account(int membershipType, string membershipId)
         {
             string path = string.Format("/Destiny/{0}/DestinyAccount/{1}", membershipType, membershipId);
@@ -19,6 +24,12 @@ namespace SharpDestiny.Destiny
             return new AccountResponse(j);
         }
 
+        /// <summary>
+        /// http://www.bungie.net/platform/Destiny/2/Stats/GetMembershipIdByDisplayName/GameCompanion/
+        /// </summary>
+        /// <param name="membershipType">2</param>
+        /// <param name="displayName">GameCompanion</param>
+        /// <returns></returns>
         public async Task<MembershipResponse> GetMembershipIdByDisplayName(int membershipType, string displayName)
         {
             string path = string.Format("/Destiny/{0}/Stats/GetMembershipIdByDisplayName/{1}", membershipType, displayName);
@@ -28,20 +39,9 @@ namespace SharpDestiny.Destiny
         }
 
         /// <summary>
-        /// http://www.bungie.net/platform/User/SearchUsersPaged/superg00dadvice/1/
-        /// </summary>
-        /// <param name="membershipType"></param>
-        /// <param name="userName"></param>
-        /// <returns></returns>
-        public async Task<PlayerResponse> SearchPlayer(int membershipType, string userName)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
         /// http://www.bungie.net/platform/User/GetBungieAccount/8974337/254/
         /// </summary>
-        /// <param name="membershipId"></param>
+        /// <param name="membershipId">8974337</param>
         /// <returns></returns>
         public async Task<BungieAccountResponse> BungieAccount(int membershipId)
         {
@@ -51,11 +51,26 @@ namespace SharpDestiny.Destiny
             return new BungieAccountResponse(j);
         }
 
-        public Task<MembershipResponse> GetCharacterInventory(string accountId, string characterId)
+        /// <summary>
+        /// http://www.bungie.net/Platform/Destiny/2/Account/4611686018428828459/Character/2305843009216514616/Inventory/?lc=en&fmt=true&lcin=true&definitions=true
+        /// need to set definitions=true to retrive actual item info
+        /// </summary>
+        /// <param name="accountId">4611686018428828459</param>
+        /// <param name="characterId">2305843009216514616</param>
+        /// <returns></returns>
+        public async Task<ItemsResponse> GetCharacterInventory(string accountId, string characterId)
         {
-            throw new NotImplementedException();
-        }
+            string path = string.Format("/Destiny/2/Account/{0}/Character/{1}/Inventory/?lc=en&fmt=true&lcin=true&definitions=true", accountId, characterId);
+            JObject j = await NoAuthRequest(path);
 
+            return new ItemsResponse(j);
+        }
+        
+        /// <summary>
+        /// Make an unauthenticated request
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         private async Task<JObject> NoAuthRequest(string path)
         {
             HttpResponseMessage msg;

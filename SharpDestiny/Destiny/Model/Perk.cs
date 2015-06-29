@@ -1,11 +1,10 @@
 ﻿using System.Runtime.Serialization;
 
-namespace SharpDestiny.Destiny
+namespace SharpDestiny.Destiny.Model
 {
     [DataContract]
     public class Perk
     {
-
         [DataMember(Name="iconPath")]
         public string IconPath { get; set; }
 

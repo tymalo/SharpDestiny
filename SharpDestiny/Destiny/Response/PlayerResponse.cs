@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using SharpCommon.Extension;
+using SharpDestiny.Destiny.Model;
+
 
 namespace SharpDestiny.Destiny.Response
 {
-    public class PlayerResponse : Responses.Response {
+    public class PlayerResponse : Common.Response {
 
         public ICollection<Player> DestinyPlayers;
 

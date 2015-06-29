@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json.Linq;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
+using Newtonsoft.Json.Linq;
 using SharpDestiny.Platform.Model;
 
-namespace SharpDestiny.Responses {
+namespace SharpDestiny.Platform.Response {
 	[DataContract]
-	public class CurrentUserResponse : Response {
+	public class CurrentUserResponse : Common.Response {
 
 		[DataMember]
 		public CurrentUser User;
@@ -15,8 +15,6 @@ namespace SharpDestiny.Responses {
 			if(j["Response"] != null) {
 				User = new CurrentUser(j["Response"].Value<JObject>());
 			}
-
 		}
-
 	}
 }

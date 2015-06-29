@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using Newtonsoft.Json.Linq;
 using SharpDestiny.Destiny.Response;
-using SharpDestiny.Enums;
+using SharpDestiny.Platform.Enums;
 using SharpDestiny.Platform.Model;
 using SharpDestiny.Platform.Response;
 using SharpDestiny.Responses;

@@ -5,7 +5,7 @@ using SharpDestiny.Platform.Model;
 namespace SharpDestiny.Platform.Response
 {
     [DataContract]
-    public class UsersPagedResponse : Responses.Response
+    public class UsersPagedResponse : Common.Response
     {
         [DataMember]
         public UsersPaged UsersPaged;

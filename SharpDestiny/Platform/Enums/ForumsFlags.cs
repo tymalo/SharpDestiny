@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
 using System;
 
-namespace SharpDestiny.Enums {
+namespace SharpDestiny.Platform.Enums {
 
 	[DataContract]
 	[Flags]
