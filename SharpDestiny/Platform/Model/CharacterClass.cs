@@ -1,4 +1,5 @@
 ﻿using System.Runtime.Serialization;
+using Newtonsoft.Json.Linq;
 
 namespace SharpDestiny.Platform.Model
 {
@@ -25,5 +26,12 @@ namespace SharpDestiny.Platform.Model
 
         [DataMember(Name = "mentorVendorIdentifier")]
         public string MentorVendorIdentifier { get; set; }
+
+        public CharacterClass(JObject j)
+        {
+            ClassName = j["className"] != null
+                ? j["className"].Value<string>()
+                : null;
+        }
     }
 }

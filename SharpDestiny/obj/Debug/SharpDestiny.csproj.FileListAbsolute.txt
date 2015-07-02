@@ -11,6 +11,6 @@ C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny\bin\Debug\SharpDestiny.pdb
 C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny\bin\Debug\Newtonsoft.Json.dll
 C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny\bin\Debug\SharpCommon.Extension.dll
 C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny\bin\Debug\Newtonsoft.Json.xml
+C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny\obj\Debug\SharpDestiny.csprojResolveAssemblyReference.cache
 C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny\obj\Debug\SharpDestiny.dll
 C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny\obj\Debug\SharpDestiny.pdb
-C:\Dropbox\DEV\GITHUB\SharpDestiny\SharpDestiny\obj\Debug\SharpDestiny.csprojResolveAssemblyReference.cache

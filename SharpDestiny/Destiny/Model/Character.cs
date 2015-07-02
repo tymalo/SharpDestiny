@@ -61,6 +61,11 @@ namespace SharpDestiny.Destiny.Model
                 CharacterId = j["characterId"].Value<string>();
             }
 
+            if (j["characterClass"] != null)
+            {
+                CharacterClass = new CharacterClass(j["characterClass"].Value<JObject>());
+            }
+
             //if (j["emblemPath"] != null) {
             //    EmblemPath = j["emblemPath"].Value<string>();
             //}

@@ -6,7 +6,7 @@ using SharpDestiny.Platform.Response;
 namespace SharpDestiny.Destiny
 {
     [ServiceContract]
-    public interface IPlatformDestiny
+    public interface IDestinyPlatform
     {
         [OperationContract]
         Task<AccountResponse> Account(int membershipType,string membershipId);

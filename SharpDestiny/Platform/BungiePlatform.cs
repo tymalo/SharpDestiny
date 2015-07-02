@@ -14,7 +14,7 @@ using SharpDestiny.Platform.Response;
 namespace SharpDestiny.Platform {
 
 	[ServiceBehavior(IncludeExceptionDetailInFaults = true)]
-	public class Platform : IPlatform {
+	public class BungiePlatform : IBungiePlatform {
 
 		private async Task<JObject> AuthRequest(string path, string method, HttpContent data, RequestingUser u) {
 

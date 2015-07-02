@@ -17,7 +17,7 @@ namespace SharpDestiny.Platform.Model {
 		}
 		public static string PlatformPath {
 			get {
-				return Base + "/Platform";
+				return Base + "/BungiePlatform";
 			}
 		}
 

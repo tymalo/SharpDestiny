@@ -8,7 +8,7 @@ using SharpDestiny.Platform.Response;
 
 namespace SharpDestiny.Destiny
 {
-    public class PlatformDestiny : IPlatformDestiny
+    public class DestinyPlatform : IDestinyPlatform
     {
         /// <summary>
         /// http://www.bungie.net/platform/Destiny/2/Account/4611686018428828459/
@@ -52,7 +52,7 @@ namespace SharpDestiny.Destiny
         }
 
         /// <summary>
-        /// http://www.bungie.net/Platform/Destiny/2/Account/4611686018428828459/Character/2305843009216514616/Inventory/?lc=en&fmt=true&lcin=true&definitions=true
+        /// http://www.bungie.net/BungiePlatform/Destiny/2/Account/4611686018428828459/Character/2305843009216514616/Inventory/?lc=en&fmt=true&lcin=true&definitions=true
         /// need to set definitions=true to retrive actual item info
         /// </summary>
         /// <param name="accountId">4611686018428828459</param>

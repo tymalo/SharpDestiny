@@ -8,7 +8,7 @@ using SharpDestiny.Platform.Response;
 namespace SharpDestiny.Platform
 {
     [ServiceContract]
-    public interface IPlatform
+    public interface IBungiePlatform
     {
         [OperationContract]
         Task<GetTopicsResponse> GetTopics(
