@@ -58,12 +58,12 @@ namespace SharpDestiny.Destiny
         /// <param name="accountId">4611686018428828459</param>
         /// <param name="characterId">2305843009216514616</param>
         /// <returns></returns>
-        public async Task<ItemsResponse> GetCharacterInventory(string accountId, string characterId)
+        public async Task<CharacterInventoryResponse> GetCharacterInventory(string accountId, string characterId)
         {
             string path = string.Format("/Destiny/2/Account/{0}/Character/{1}/Inventory/?lc=en&fmt=true&lcin=true&definitions=true", accountId, characterId);
             JObject j = await NoAuthRequest(path);
 
-            return new ItemsResponse(j);
+            return new CharacterInventoryResponse(j);
         }
         
         /// <summary>

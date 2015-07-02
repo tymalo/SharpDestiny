@@ -92,9 +92,5 @@ namespace SharpDestiny.Platform
                   RequestingUser u,
             string gamerTag,
             int page =1);
-
-
-
-
     }
 }

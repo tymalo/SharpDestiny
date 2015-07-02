@@ -18,6 +18,6 @@ namespace SharpDestiny.Destiny
         Task<BungieAccountResponse> BungieAccount(int membershipId);
 
         [OperationContract]
-        Task<ItemsResponse> GetCharacterInventory(string accountId, string characterId);
+        Task<CharacterInventoryResponse> GetCharacterInventory(string accountId, string characterId);
     }
 }

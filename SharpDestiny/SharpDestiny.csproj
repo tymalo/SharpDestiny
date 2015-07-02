@@ -54,6 +54,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Attribute.cs" />
+    <Compile Include="Destiny\Enums\DestinyItemSubType.cs" />
+    <Compile Include="Destiny\Enums\DestinyItemTier.cs" />
+    <Compile Include="Destiny\Enums\DestinyItemType.cs" />
+    <Compile Include="Destiny\Enums\DestinySpecialItemType.cs" />
+    <Compile Include="Destiny\Enums\DestinyWeaponsSlot.cs" />
+    <Compile Include="Destiny\Model\Bucket.cs" />
+    <Compile Include="Destiny\Response\CharacterInventoryResponse.cs" />
     <Compile Include="Platform\Model\BungieAccount.cs" />
     <Compile Include="Platform\Model\BungieNet.cs" />
     <Compile Include="Platform\Model\CharacterClass.cs" />
