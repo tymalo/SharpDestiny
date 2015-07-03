@@ -26,12 +26,23 @@ namespace SharpDestiny.Tests
         [TestMethod]
         public void WillFindDestinyAccount()
         {
+
+            var displayName = "GameCompanion";
+
+            var x = _destinyPlatform.FindDestinyAccountCharacters(displayName);
+
+            Assert.IsNotNull(x);
+        }
+
+        [TestMethod]
+        public void WillFindDestinyAccountOriginal()
+        {
             DestinyAccount destinyAccount = new DestinyAccount();
 
-            //http://www.bungie.net/platform/User/SearchUsersPaged/superg00dadvice/1/
-            var displayName = "dddddddddd";
+            //http://www.bungie.net/platform/User/SearchUsersPaged/GameCompanion/1/
+            var displayName = "GameCompanion";
 
-            Task<UsersPagedResponse> query = _bungiePlatform.SearchUsersPaged(null,displayName, 1);
+            Task<UsersPagedResponse> query = _bungiePlatform.SearchUsersPaged(null, displayName, 1);
             UsersPagedResponse response = query.Result;
 
             if (response.UsersPaged.Users.Any())

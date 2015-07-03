@@ -36,16 +36,25 @@ namespace SharpDestiny.Destiny.Model
         public DestinyAccount() {}
 
 		public DestinyAccount(JObject j) {
+
+            Characters = new List<Character>();
+
             if (j["membershipId"] != null) {
                 MembershipId = j["membershipId"].Value<string>();
 		    }
             if (j["membershipType"] != null) {
                 MembershipType = j["membershipType"].Value<int>();
             }
-            ClanName = j["clanName"].Value<string>();
-            ClanTag = j["clanTag"].Value<string>();
-            GrimoireScore = j["grimoireScore"].Value<int>();
-            Characters = new List<Character>();
+
+            ClanName = j["clanName"] !=null ? j["clanName"].Value<string>() : null;
+
+            ClanTag = j["clanTag"] != null ? j["clanTag"].Value<string>() : null;
+
+
+            if (j["grimoireScore"] != null)
+            {
+                GrimoireScore = j["grimoireScore"].Value<int>();
+            }
 
 		    if (j["userInfo"] != null) {
                 UserInfo = new UserInfo(j["userInfo"].Value<JObject>());
