@@ -55,16 +55,31 @@ namespace SharpDestiny.Destiny.Model
         [DataMember(Name = "levelProgression")]
         public LevelProgression LevelProgression { get; set; }
 
-        public Character(JObject j) {
+        public Character(JObject j)
+        {
+            if (j["characterLevel"] != null)
+            {
+                CharacterLevel = j["characterLevel"].Value<int>();
+            }
 
-            if (j["characterId"] != null) {
+            if (j["characterId"] != null)
+            {
                 CharacterId = j["characterId"].Value<string>();
             }
 
             if (j["characterClass"] != null)
             {
-                CharacterClass = new CharacterClass(j["characterClass"].Value<JObject>());
+                CharacterClass =  new CharacterClass(j["characterClass"].Value<JObject>());
             }
+        
+
+            if (j["characterBase"] != null)
+            {
+                CharacterId = j["characterBase"]["characterId"] != null ? j["characterBase"]["characterId"].Value<string>() : null;
+                CharacterClass = j["characterBase"]["characterClass"] != null ? new CharacterClass(j["characterBase"]["characterClass"].Value<JObject>()) : null;
+            }
+
+       
 
             //if (j["emblemPath"] != null) {
             //    EmblemPath = j["emblemPath"].Value<string>();
@@ -79,6 +94,6 @@ namespace SharpDestiny.Destiny.Model
 
             //CharacterBase = new CharacterBase(j);
             //LevelProgression = new LevelProgression(j);
-		}
+        }
     }
 }

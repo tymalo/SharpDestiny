@@ -32,6 +32,6 @@ namespace SharpDestiny.Destiny
         /// <returns></returns>
         IList<Item> FindCharacterItemsByBucketName(CharacterInventoryResponse characterInventory,DestinyBucketNames bucketName);
 
-        DestinyAccountCharacters FindDestinyAccountCharacters(string gamertag);
+        DestinyAccountCharacters FindDestinyAccountCharacters(int membershipType, string gamertag);
     }
 }

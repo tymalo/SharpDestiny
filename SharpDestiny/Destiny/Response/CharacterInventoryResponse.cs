@@ -15,10 +15,14 @@ namespace SharpDestiny.Destiny.Response
         [DataMember]
         public ICollection<Bucket> Buckets;
 
+        [DataMember]
+        public ICollection<Stat> Stats;
+
         public CharacterInventoryResponse(JObject j) : base(j)
         {
             Items = new List<Item>();
             Buckets = new List<Bucket>();
+            Stats = new List<Stat>();
 
             if (j["Response"] != null)
             {
@@ -32,6 +36,12 @@ namespace SharpDestiny.Destiny.Response
                 {
                     var jObj = x.First.Value<JObject>();
                     Buckets.Add(new Bucket(jObj));
+                });
+
+                j["Response"]["definitions"]["stats"].ForEach(x =>
+                {
+                    var jObj = x.First.Value<JObject>();
+                    Stats.Add(new Stat(jObj));
                 });
             }
         }

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 using Newtonsoft.Json.Linq;
+using SharpCommon.Extension;
 
 namespace SharpDestiny.Destiny.Model
 {
@@ -8,22 +10,27 @@ namespace SharpDestiny.Destiny.Model
     public class Inventory
     {
         [DataMember(Name = "buckets")]
-        public Buckets Buckets { get; set; }
+        public ICollection<Bucket> Buckets { get; set; }
 
         [DataMember(Name = "currencies")]
-        public IList<Currency> Currencies { get; set; }
+        public ICollection<Currency> Currencies { get; set; }
 
         public Inventory(){}
 
         public Inventory(JObject j)
         {
-            Buckets = new Buckets(j);
-
+            Buckets = new List<Bucket>();
             Currencies = new List<Currency>();
 
-            foreach (JObject c in j["inventory"]["currencies"])
+
+            if (j["buckets"] != null)
             {
-                Currencies.Add(new Currency(c));
+                j["buckets"].Cast<JObject>().ForEach(x => Buckets.Add(new Bucket(x)));
+            }
+
+            if (j["currencies"] != null)
+            {
+                j["currencies"].Cast<JObject>().ForEach(x => Currencies.Add(new Currency(x)));
             }
 		}
     }

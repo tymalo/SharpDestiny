@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpDestiny.Destiny;
+using SharpDestiny.Destiny.Enums;
 using SharpDestiny.Destiny.Model;
+using SharpDestiny.Destiny.Response;
 using SharpDestiny.Platform;
-using SharpDestiny.Platform.Response;
 
 
 namespace SharpDestiny.Tests
@@ -20,58 +20,55 @@ namespace SharpDestiny.Tests
         public static void MyClassInitialize(TestContext testContext)
         {
             _destinyPlatform = new DestinyPlatform();
-            _bungiePlatform = new Platform.BungiePlatform();
+            _bungiePlatform = new BungiePlatform();
         }
 
         [TestMethod]
-        public void WillFindDestinyAccount()
+        public void WillFindFindDestinyAccountCharactersGameCompanion()
         {
-
             var displayName = "GameCompanion";
+            var membershipId = "4611686018428828459";
 
-            var x = _destinyPlatform.FindDestinyAccountCharacters(displayName);
+            var x = _destinyPlatform.FindDestinyAccountCharacters(2,displayName);
 
-            Assert.IsNotNull(x);
+            Assert.AreEqual(x.MembershipId,membershipId);
         }
 
         [TestMethod]
-        public void WillFindDestinyAccountOriginal()
+        public void WillFindFindDestinyAccountCharactersAccountSuperG00dAdvice()
         {
-            DestinyAccount destinyAccount = new DestinyAccount();
+            var displayName = "SuperG00dAdvice";
+            var membershipId = "4611686018438970787";
 
-            //http://www.bungie.net/platform/User/SearchUsersPaged/GameCompanion/1/
-            var displayName = "GameCompanion";
+            var x = _destinyPlatform.FindDestinyAccountCharacters(2, displayName);
 
-            Task<UsersPagedResponse> query = _bungiePlatform.SearchUsersPaged(null, displayName, 1);
-            UsersPagedResponse response = query.Result;
-
-            if (response.UsersPaged.Users.Any())
-            {
-                var user = response.UsersPaged.Users.First();
-
-                Task<BungieAccountResponse> _bungieAccountResponse = _destinyPlatform.BungieAccount(user.MemberId);
-
-                if (_bungieAccountResponse.Result.BungieAccount.DestinyAccounts.Any())
-                {
-                    destinyAccount = _bungieAccountResponse.Result.BungieAccount.DestinyAccounts.First();
-
-                    var characterId = destinyAccount.Characters.First().CharacterId;
-                }
-            }
-            Assert.IsNotNull(destinyAccount);
+            Assert.AreEqual(x.MembershipId, membershipId);
         }
 
         [TestMethod]
         public void WillLoadCharacterInventory()
         {
-            var accountId = "4611686018428828459";
+            var memebrshipId = "4611686018428828459";
             var charcaterId = "2305843009216514616";
 
-            var itemsResponse = _destinyPlatform.GetCharacterInventory(accountId, charcaterId);
+            var itemsResponse = _destinyPlatform.GetCharacterInventory(memebrshipId, charcaterId);
 
             ICollection<Item> items = itemsResponse.Result.Items;
 
             Assert.IsTrue(items.Count > 0);
+        }
+
+        [TestMethod]
+        public void WillFindCharacterItemsByBucketName()
+        {
+            var memebrshipId = "4611686018428828459";
+            var charcaterId = "2305843009216514616";
+
+            CharacterInventoryResponse characterInventory = _destinyPlatform.GetCharacterInventory(memebrshipId, charcaterId).Result;
+
+            List<Item> primaries = _destinyPlatform.FindCharacterItemsByBucketName(characterInventory, DestinyBucketNames.PrimaryWeapons).ToList();
+
+            Assert.IsTrue(primaries.Count > 0);
         }
     }
 }

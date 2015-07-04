@@ -13,7 +13,7 @@ namespace SharpDestiny.Destiny.Response
 
             if (j["Response"] != null)
             {
-                DestinyAccount = new DestinyAccount(j["Response"].Value<JObject>());
+                DestinyAccount = new DestinyAccount(j["Response"]["data"].Value<JObject>());
             }
         }
     }

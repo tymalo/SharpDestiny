@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Newtonsoft.Json.Linq;
+using SharpCommon.Extension;
 
 namespace SharpDestiny.Destiny.Model
 {
@@ -8,7 +9,7 @@ namespace SharpDestiny.Destiny.Model
     public class Item
     {
         [DataMember(Name = "itemHash")]
-        public long ItemHash { get; set; }
+        public string ItemHash { get; set; }
 
         [DataMember(Name = "itemName")]
         public string ItemName { get; set; }
@@ -38,7 +39,7 @@ namespace SharpDestiny.Destiny.Model
         public string ItemTypeName { get; set; }
 
         [DataMember(Name = "bucketTypeHash")]
-        public long BucketTypeHash { get; set; }
+        public string BucketTypeHash { get; set; }
 
         [DataMember(Name = "bindStatus")]
         public int BindStatus { get; set; }
@@ -117,19 +118,26 @@ namespace SharpDestiny.Destiny.Model
 
         public Item(JObject j)
         {
-            ItemHash = j["itemHash"].Value<long>();
+            Stats = new List<Stat>();
+
+            ItemHash = j["itemHash"].Value<string>();
             ItemName = j["itemName"] != null ? j["itemName"].Value<string>() : null;
             ItemDescription = j["itemDescription"] != null ? j["itemDescription"].Value<string>() : null;
             Icon = j["icon"] != null ? j["icon"].Value<string>() : null;
             SecondaryIcon = j["secondaryIcon"] != null ? j["secondaryIcon"].Value<string>() : null;
             TierTypeName = j["tierTypeName"] != null ? j["tierTypeName"].Value<string>() : null;
             ItemTypeName = j["itemTypeName"] != null ? j["itemTypeName"].Value<string>() : null;
+            BucketTypeHash = j["bucketTypeHash"] != null ? j["bucketTypeHash"].Value<string>() : null;
 
             if (j["tierType"] != null)
             {
                 TierType = j["tierType"].Value<int>();
             }
-           
+            j["stats"].ForEach(x =>
+            {
+                var jObj = x.First.Value<JObject>();
+                Stats.Add(new Stat(jObj));
+            });
         }
     }
 }

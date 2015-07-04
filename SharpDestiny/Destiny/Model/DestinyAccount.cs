@@ -31,7 +31,7 @@ namespace SharpDestiny.Destiny.Model
         public UserInfo UserInfo { get; set; }
 
         [DataMember(Name = "characters")]
-        public IList<Character> Characters { get; set; }
+        public ICollection<Character> Characters { get; set; }
 
         public DestinyAccount() {}
 
@@ -56,16 +56,18 @@ namespace SharpDestiny.Destiny.Model
                 GrimoireScore = j["grimoireScore"].Value<int>();
             }
 
-		    if (j["userInfo"] != null) {
+            if (j["userInfo"] != null)
+            {
                 UserInfo = new UserInfo(j["userInfo"].Value<JObject>());
-		    }
+            }
 		
-		    if (j["inventory"] != null) {  
-                Inventory = new Inventory(j["inventory"].Value<JObject>());
-		    }
+            //if (j["inventory"] != null) {  
+            //    Inventory = new Inventory(j["inventory"].Value<JObject>());
+            //}
 
-		    if (j["characters"] != null) {
-		        j["characters"].Cast<JObject>().ForEach(x => Characters.Add(new Character(x)));
+		    if (j["characters"] != null) 
+            {
+                j["characters"].Cast<JObject>().ForEach(x => Characters.Add(new Character(x)));
 		    }
 		}
     }

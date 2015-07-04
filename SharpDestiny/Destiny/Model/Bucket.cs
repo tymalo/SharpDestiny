@@ -7,7 +7,7 @@ namespace SharpDestiny.Destiny.Model
     public class Bucket
     {
         [DataMember(Name = "bucketHash")]
-        public long BucketHash { get; set; }
+        public string BucketHash { get; set; }
 
         [DataMember(Name = "bucketName")]
         public string BucketName { get; set; }
@@ -38,7 +38,7 @@ namespace SharpDestiny.Destiny.Model
 
         public Bucket(JObject j)
         {
-            BucketHash = j["bucketHash"].Value<long>();
+            BucketHash = j["bucketHash"] != null ? j["bucketHash"].Value<string>() : null;
             BucketName = j["bucketName"] != null ? j["bucketName"].Value<string>() : null;
             BucketDescription = j["bucketDescription"] != null ? j["bucketDescription"].Value<string>() : null;
             Scope = j["scope"].Value<int>();

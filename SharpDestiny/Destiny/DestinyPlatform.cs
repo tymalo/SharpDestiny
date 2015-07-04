@@ -17,7 +17,7 @@ namespace SharpDestiny.Destiny
     public class DestinyPlatform : IDestinyPlatform
     {
         /// <summary>
-        /// http://www.bungie.net/platform/Destiny/2/DestinyAccount/4611686018428828459/
+        /// http://www.bungie.net/platform/Destiny/2/Account/4611686018428828459/
         /// </summary>
         /// <param name="membershipType">2</param>
         /// <param name="membershipId">4611686018428828459</param>
@@ -47,18 +47,18 @@ namespace SharpDestiny.Destiny
         /// <summary>
         /// http://www.bungie.net/platform/User/GetBungieAccount/8974337/254/
         /// </summary>
-        /// <param name="membershipId">8974337</param>
+        /// <param name="memberId">8974337</param>
         /// <returns></returns>
-        public async Task<BungieAccountResponse> BungieAccount(int membershipId)
+        public async Task<BungieAccountResponse> BungieAccount(int memberId)
         {
-            string path = string.Format("/User/GetBungieAccount/{0}/{1}",membershipId,254);
+            string path = string.Format("/User/GetBungieAccount/{0}/{1}",memberId,254);
             JObject j = await NoAuthRequest(path);
 
             return new BungieAccountResponse(j);
         }
 
         /// <summary>
-        /// http://www.bungie.net/BungiePlatform/Destiny/2/DestinyAccount/4611686018428828459/Character/2305843009216514616/Inventory/?lc=en&fmt=true&lcin=true&definitions=true
+        /// http://www.bungie.net/Platform/Destiny/2/Account/4611686018428828459/Character/2305843009216514616/Inventory/?lc=en&fmt=true&lcin=true&definitions=true
         /// need to set definitions=true to retrive actual item info
         /// </summary>
         /// <param name="accountId">4611686018428828459</param>
@@ -66,7 +66,7 @@ namespace SharpDestiny.Destiny
         /// <returns></returns>
         public async Task<CharacterInventoryResponse> GetCharacterInventory(string accountId, string characterId)
         {
-            string path = string.Format("/Destiny/2/DestinyAccount/{0}/Character/{1}/Inventory/?lc=en&fmt=true&lcin=true&definitions=true", accountId, characterId);
+            string path = string.Format("/Destiny/2/Account/{0}/Character/{1}/Inventory/?lc=en&fmt=true&lcin=true&definitions=true", accountId, characterId);
             JObject j = await NoAuthRequest(path);
 
             return new CharacterInventoryResponse(j);
@@ -84,23 +84,26 @@ namespace SharpDestiny.Destiny
             return result;
         }
 
-        public DestinyAccountCharacters FindDestinyAccountCharacters(string gamertag)
+        public DestinyAccountCharacters FindDestinyAccountCharacters(int membershipType, string gamertag)
         {
             var x = new DestinyAccountCharacters();
 
-            //try find by http://www.bungie.net/platform/Destiny/2/Stats/GetMembershipIdByDisplayName/GameCompanion/
-            Task<MembershipResponse> membershipResponse = GetMembershipIdByDisplayName(2, gamertag);
+            ////try find by http://www.bungie.net/platform/Destiny/2/Stats/GetMembershipIdByDisplayName/GameCompanion/
+            //Task<MembershipResponse> membershipResponse = GetMembershipIdByDisplayName(membershipType, gamertag);
 
-            if (membershipResponse.Result.Membership != null)
-            {
-                x.MembershipId = membershipResponse.Result.Membership.MembershipId;
-                Task<DestinyAccountResponse> destinyAccountResponse = DestinyAccount(2, membershipResponse.Result.Membership.MembershipId);
+            //if (membershipResponse.Result.Membership != null)
+            //{
+            //    x.MembershipId = membershipResponse.Result.Membership.MembershipId;
+            //    //http://www.bungie.net/platform/Destiny/2/Account/4611686018428828459/
+            //    Task<DestinyAccountResponse> destinyAccountResponse = DestinyAccount(membershipType, membershipResponse.Result.Membership.MembershipId);
 
-                if (destinyAccountResponse.Result.DestinyAccount != null)
-                {
-                    x.Characters.AddRange(destinyAccountResponse.Result.DestinyAccount.Characters);
-                }
-            }
+            //    if (destinyAccountResponse.Result.DestinyAccount.Characters != null)
+            //    {
+            //        x.Characters.AddRange(destinyAccountResponse.Result.DestinyAccount.Characters);
+
+            //        return x;
+            //    }
+            //}
 
 
             //no luck with above method, let's try soemthing else
@@ -110,13 +113,30 @@ namespace SharpDestiny.Destiny
 
             if (usersPagedResponse.UsersPaged.Users.Any())
             {
-                var user = usersPagedResponse.UsersPaged.Users.First();
-                x.MembershipId = user.MemberId.ToString();
-                Task<BungieAccountResponse> _bungieAccountResponse = BungieAccount(user.MemberId);
+                IEnumerable<int> memberIds = usersPagedResponse.UsersPaged.Users.Select(u => u.MemberId);
 
-                if (_bungieAccountResponse.Result.BungieAccount.DestinyAccounts.Any())
+                foreach (var memberId in memberIds)
                 {
-                    x.Characters.AddRange(_bungieAccountResponse.Result.BungieAccount.DestinyAccounts.First().Characters);
+                    Task<BungieAccountResponse> _bungieAccountResponse = BungieAccount(memberId);
+
+                    if (_bungieAccountResponse.Result.BungieAccount != null)
+                    {
+                        if (_bungieAccountResponse.Result.BungieAccount.DestinyAccounts.Any())
+                        {
+                            var destinyAccount = _bungieAccountResponse.Result.BungieAccount.DestinyAccounts.First();
+
+                            if (destinyAccount.UserInfo != null)
+                            {
+                                x.MembershipId = destinyAccount.UserInfo.MembershipId;
+                            }
+                            if (destinyAccount.Characters.Any())
+                            {
+                                x.Characters.AddRange(destinyAccount.Characters);
+                            }
+
+                            return x;
+                        }
+                    }
                 }
             }
 
