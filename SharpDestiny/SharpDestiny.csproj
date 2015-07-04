@@ -126,7 +126,7 @@
     <Compile Include="Platform\Enums\ClientDeviceType.cs" />
     <Compile Include="Platform\Enums\ContentDateRange.cs" />
     <Compile Include="Platform\Enums\ContentSortBy.cs" />
-    <Compile Include="Platform\Enums\DamageType.cs" />
+    <Compile Include="Destiny\Enums\DestinyDamageType.cs" />
     <Compile Include="Destiny\Enums\DestinyActivityModeType.cs" />
     <Compile Include="Destiny\Enums\DestinyClass.cs" />
     <Compile Include="Destiny\Enums\DestinyDefinitionType.cs" />

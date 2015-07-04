@@ -1,4 +1,5 @@
 ﻿using System.Runtime.Serialization;
+using Newtonsoft.Json.Linq;
 
 namespace SharpDestiny.Destiny.Model
 {
@@ -9,9 +10,16 @@ namespace SharpDestiny.Destiny.Model
         public string IconPath { get; set; }
 
         [DataMember(Name="perkHash")]
-        public int PerkHash { get; set; }
+        public string PerkHash { get; set; }
 
         [DataMember(Name="isActive")]
         public bool IsActive { get; set; }
+
+        public Perk(JObject j)
+        {
+            PerkHash = j["perkHash"] != null ? j["perkHash"].Value<string>() : null;
+            IconPath = j["iconPath"] != null ? j["iconPath"].Value<string>() : null;
+            IsActive = j["isActive"].Value<bool>();
+        }
     }
 }

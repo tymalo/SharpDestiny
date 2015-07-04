@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 using Newtonsoft.Json.Linq;
 using SharpCommon.Extension;
@@ -119,6 +121,7 @@ namespace SharpDestiny.Destiny.Model
         public Item(JObject j)
         {
             Stats = new List<Stat>();
+            Perks = new List<Perk>();
 
             ItemHash = j["itemHash"].Value<string>();
             ItemName = j["itemName"] != null ? j["itemName"].Value<string>() : null;
@@ -133,11 +136,47 @@ namespace SharpDestiny.Destiny.Model
             {
                 TierType = j["tierType"].Value<int>();
             }
-            j["stats"].ForEach(x =>
+
+            if (j["damageType"] != null)
             {
-                var jObj = x.First.Value<JObject>();
-                Stats.Add(new Stat(jObj));
-            });
+                DamageType = j["damageType"].Value<int>();
+            }
+
+            if (j["stats"] != null)
+            {
+                j["stats"].ForEach(x =>
+                {
+                    if (x.Type == JTokenType.Property)
+                    {
+                        JObject jObj = x.First.Value<JObject>();
+                        Stats.Add(new Stat(jObj));
+                    }
+                    if (x.Type == JTokenType.Object)
+                    {
+                        JObject jObj = x.Value<JObject>();
+                        Stats.Add(new Stat(jObj));
+                    }
+                });
+            }
+
+            if (j["perks"] != null)
+            {
+                j["perks"].ForEach(x =>
+                {
+                    JToken token = x.Value<JToken>();
+
+                    if (x.Type == JTokenType.Property)
+                    {
+                        var jObj = x.Value<JObject>();
+                        Perks.Add(new Perk(jObj));
+                    }
+                    if (x.Type == JTokenType.Object)
+                    {
+                        JToken t = token;
+                        Perks.Add(new Perk(t.Value<JObject>()));
+                    }
+                });
+            }
         }
     }
 }
