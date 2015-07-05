@@ -79,6 +79,28 @@ namespace SharpDestiny.Destiny
 
             if (bucketHash != null) {
                 result.AddRange(characterInventory.Items.Where(x => x.BucketTypeHash == bucketHash.BucketHash).ToList());
+
+                foreach (Item item in result)
+                {
+                    item.Perks = new List<Perk>();
+                    List<Item> equippables = characterInventory.Equippable.Where(x => x.ItemHash == item.ItemHash).ToList();
+
+                    foreach (var equippable in equippables)
+                    {
+                        foreach (var perk in equippable.Perks)
+                        {
+                            var definition = characterInventory.Perks.FirstOrDefault(x => x.PerkHash == perk.PerkHash);
+                            if (definition != null)
+                            {
+                                perk.DisplayName = definition.DisplayName;
+                                perk.DisplayDescription = definition.DisplayDescription;
+                                perk.DisplayIcon = definition.DisplayIcon;
+                                perk.IsDisplayable = definition.IsDisplayable;
+                            }
+                            item.Perks.Add(perk);
+                        }    
+                    }
+                }
             }
 
             return result;

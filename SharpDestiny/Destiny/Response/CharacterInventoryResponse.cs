@@ -22,12 +22,16 @@ namespace SharpDestiny.Destiny.Response
         [DataMember]
         public ICollection<Stat> Stats;
 
+        [DataMember]
+        public ICollection<Perk> Perks;
+
         public CharacterInventoryResponse(JObject j) : base(j)
         {
             Items = new List<Item>();
             Equippable = new List<Item>();
             Buckets = new List<Bucket>();
             Stats = new List<Stat>();
+            Perks = new List<Perk>();
 
             if (j["Response"] != null)
             {
@@ -43,16 +47,13 @@ namespace SharpDestiny.Destiny.Response
                     
                     if (x.Type == JTokenType.Property)
                     {
-                        
-                            JObject jObj = x["items"].Value<JObject>();
-                            Equippable.Add(new Item(jObj));
-                       
+                        JObject jObj = x["items"].Value<JObject>();
+                        Equippable.Add(new Item(jObj));
                     }
                     if (x.Type == JTokenType.Object)
                     {
                         JToken t = token["items"].First;
                         Equippable.Add(new Item(t.Value<JObject>()));
-                    
                     }
                 });
 
@@ -66,6 +67,12 @@ namespace SharpDestiny.Destiny.Response
                 {
                     var jObj = x.First.Value<JObject>();
                     Stats.Add(new Stat(jObj));
+                });
+
+                j["Response"]["definitions"]["perks"].ForEach(x =>
+                {
+                    var jObj = x.First.Value<JObject>();
+                    Perks.Add(new Perk(jObj));
                 });
             }
         }
