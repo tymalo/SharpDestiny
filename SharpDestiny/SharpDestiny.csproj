@@ -62,8 +62,11 @@
     <Compile Include="Destiny\Enums\DestinyItemType.cs" />
     <Compile Include="Destiny\Enums\DestinySpecialItemType.cs" />
     <Compile Include="Destiny\Enums\DestinyWeaponsSlot.cs" />
+    <Compile Include="Destiny\Model\ActivationRequirement.cs" />
     <Compile Include="Destiny\Model\Bucket.cs" />
     <Compile Include="Destiny\Model\DestinyAccountCharacters.cs" />
+    <Compile Include="Destiny\Model\StepGroup.cs" />
+    <Compile Include="Destiny\Model\TalentGrid.cs" />
     <Compile Include="Destiny\Response\CharacterInventoryResponse.cs" />
     <Compile Include="Platform\Model\BungieAccount.cs" />
     <Compile Include="Platform\Model\BungieNet.cs" />

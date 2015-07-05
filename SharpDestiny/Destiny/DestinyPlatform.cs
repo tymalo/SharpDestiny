@@ -80,6 +80,7 @@ namespace SharpDestiny.Destiny
             if (bucketHash != null) {
                 result.AddRange(characterInventory.Items.Where(x => x.BucketTypeHash == bucketHash.BucketHash).ToList());
 
+                //retrieve item perks
                 foreach (Item item in result)
                 {
                     item.Perks = new List<Perk>();
@@ -99,6 +100,41 @@ namespace SharpDestiny.Destiny
                             }
                             item.Perks.Add(perk);
                         }    
+                    }
+
+                    //grab the rest of item perks
+                    TalentGrid itemTalentGrid = characterInventory.TalentGrids.FirstOrDefault(x=>x.GridHash == item.TalentGridHash);
+
+                    if (itemTalentGrid != null)
+                    {
+                        foreach (var node in itemTalentGrid.Nodes)
+                        {
+                            if (node.Steps.Any())
+                            {
+                                foreach (var step in node.Steps)
+                                {
+                                    foreach (var perkHash in step.PerkHashes)
+                                    {
+                                        Item equippable = characterInventory.Equippable.FirstOrDefault(x=>x.Perks.Any(h=>h.PerkHash == perkHash));
+                                        if (equippable != null)
+                                        {
+                                            foreach (var perk in equippable.Perks)
+                                            {
+                                                var definition = characterInventory.Perks.FirstOrDefault(x => x.PerkHash == perk.PerkHash);
+                                                if (definition != null)
+                                                {
+                                                    perk.DisplayName = definition.DisplayName;
+                                                    perk.DisplayDescription = definition.DisplayDescription;
+                                                    perk.DisplayIcon = definition.DisplayIcon;
+                                                    perk.IsDisplayable = definition.IsDisplayable;
+                                                }
+                                                item.Perks.Add(perk);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

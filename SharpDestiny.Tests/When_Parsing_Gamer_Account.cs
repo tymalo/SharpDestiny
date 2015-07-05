@@ -63,7 +63,7 @@ namespace SharpDestiny.Tests
         {
             CharacterInventoryResponse characterInventory = DestinyPlatform.GetCharacterInventory(MembershipId, CharcaterId).Result;
             List<Item> primaries = DestinyPlatform.FindCharacterItemsByBucketName(characterInventory, DestinyBucketNames.PrimaryWeapons).ToList();
-            Assert.IsTrue(primaries.Any(x => x.Perks.Count > 0 && x.Perks.Any(d=>d.DisplayDescription != null)));
+            Assert.IsTrue(primaries.Any(x => x.Perks.Count > 0 && x.Perks.Any(d=>d.DisplayDescription != null) && x.Perks.Count > 2));
         }
     }
 }

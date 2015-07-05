@@ -25,6 +25,9 @@ namespace SharpDestiny.Destiny.Response
         [DataMember]
         public ICollection<Perk> Perks;
 
+        [DataMember]
+        public ICollection<TalentGrid> TalentGrids;
+
         public CharacterInventoryResponse(JObject j) : base(j)
         {
             Items = new List<Item>();
@@ -32,6 +35,7 @@ namespace SharpDestiny.Destiny.Response
             Buckets = new List<Bucket>();
             Stats = new List<Stat>();
             Perks = new List<Perk>();
+            TalentGrids = new List<TalentGrid>();
 
             if (j["Response"] != null)
             {
@@ -73,6 +77,12 @@ namespace SharpDestiny.Destiny.Response
                 {
                     var jObj = x.First.Value<JObject>();
                     Perks.Add(new Perk(jObj));
+                });
+
+                j["Response"]["definitions"]["talentGrids"].ForEach(x =>
+                {
+                    var jObj = x.First.Value<JObject>();
+                    TalentGrids.Add(new TalentGrid(jObj));
                 });
             }
         }

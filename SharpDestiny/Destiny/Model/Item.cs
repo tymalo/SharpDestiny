@@ -92,7 +92,7 @@ namespace SharpDestiny.Destiny.Model
         public Progression Progression { get; set; }
 
         [DataMember(Name = "talentGridHash")]
-        public int TalentGridHash { get; set; }
+        public string TalentGridHash { get; set; }
 
         [DataMember(Name = "nodes")]
         public IList<Node> Nodes { get; set; }
@@ -128,9 +128,11 @@ namespace SharpDestiny.Destiny.Model
             ItemDescription = j["itemDescription"] != null ? j["itemDescription"].Value<string>() : null;
             Icon = j["icon"] != null ? j["icon"].Value<string>() : null;
             SecondaryIcon = j["secondaryIcon"] != null ? j["secondaryIcon"].Value<string>() : null;
+
             TierTypeName = j["tierTypeName"] != null ? j["tierTypeName"].Value<string>() : null;
             ItemTypeName = j["itemTypeName"] != null ? j["itemTypeName"].Value<string>() : null;
             BucketTypeHash = j["bucketTypeHash"] != null ? j["bucketTypeHash"].Value<string>() : null;
+            TalentGridHash = j["talentGridHash"] != null ? j["talentGridHash"].Value<string>() : null;
 
             if (j["tierType"] != null)
             {
