@@ -12,5 +12,44 @@ namespace SharpDestiny.Destiny.Enums
 
         [DisplayText("Heavy Weapons")]
         HeavyWeapons,
+
+        [DisplayText("Helmet")]
+        Helmet,
+
+        [DisplayText("Gauntlets")]
+        Gauntlets,
+
+        [DisplayText("Chest Armor")]
+        ChestArmor,
+
+        [DisplayText("Leg Armor")]
+        LegArmor,
+
+        [DisplayText("Ships")]
+        Ships,
+
+        [DisplayText("Class Armor")]
+        ClassArmor,
+
+        [DisplayText("Vehicle")]
+        Vehicle,
+
+        [DisplayText("Glimmer")]
+        Glimmer,
+
+        [DisplayText("Vanguard Marks")]
+        VanguardMarks,
+
+        [DisplayText("Crucible Marks")]
+        CrucibleMarks,
+
+        [DisplayText("Shaders")]
+        Shaders,
+
+        [DisplayText("Ghost")]
+        Ghost,
+
+        [DisplayText("Emblems")]
+        Emblems,
     }
 }

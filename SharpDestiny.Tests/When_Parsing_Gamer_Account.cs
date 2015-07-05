@@ -74,11 +74,18 @@ namespace SharpDestiny.Tests
         }
 
         [TestMethod]
-        public void Will_Load_Character_Items_With_Steps()
+        public void Will_Load_Character_Items_Type_Weapons_With_Steps()
         {
             CharacterInventoryResponse characterInventory = DestinyPlatform.GetCharacterInventory(MembershipId, CharcaterId).Result;
-            List<Item> primaries = DestinyPlatform.FindCharacterItemsByBucketName(characterInventory, DestinyBucketNames.HeavyWeapons).ToList();
-            Assert.IsTrue(primaries.Any(x => x.Nodes.Count > 0 && x.Nodes.Any(n=>n.Steps.Count >0)));
+            List<Item> items = DestinyPlatform.FindCharacterItemsByBucketName(characterInventory, DestinyBucketNames.HeavyWeapons).ToList();
+            Assert.IsTrue(items.Any(x => x.Nodes.Count > 0 && x.Nodes.Any(n=>n.Steps.Count >0)));
+        }
+        [TestMethod]
+        public void Will_Load_Character_Items_Type_Armor_With_Steps()
+        {
+            CharacterInventoryResponse characterInventory = DestinyPlatform.GetCharacterInventory(MembershipId, CharcaterId).Result;
+            List<Item> items = DestinyPlatform.FindCharacterItemsByBucketName(characterInventory, DestinyBucketNames.Helmet).ToList();
+            Assert.IsTrue(items.Any(x => x.Nodes.Count > 0 && x.Nodes.Any(n => n.Steps.Count > 0)));
         }
     }
 }
