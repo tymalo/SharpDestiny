@@ -75,14 +75,17 @@ namespace SharpDestiny.Destiny
         public IList<Item> FindCharacterItemsByBucketName(CharacterInventoryResponse characterInventory,DestinyBucketNames bucketName)
         {
             var result = new List<Item>();
+            //use bucketName Primary Weapons to find charcater primary weapon for example
             Bucket bucketHash = characterInventory.Buckets.FirstOrDefault(x => x.BucketName == bucketName.ToDescription());
 
             if (bucketHash != null) {
+                //added charcater primary weapon
                 result.AddRange(characterInventory.Items.Where(x => x.BucketTypeHash == bucketHash.BucketHash).ToList());
 
                 //retrieve item perks
                 foreach (Item item in result)
                 {
+                    //by default you can get 2 basic perks from definitions->equippable
                     item.Perks = new List<Perk>();
                     List<Item> equippables = characterInventory.Equippable.Where(x => x.ItemHash == item.ItemHash).ToList();
 
@@ -102,38 +105,15 @@ namespace SharpDestiny.Destiny
                         }    
                     }
 
-                    //grab the rest of item perks
+                    //add all item talent nodes
+                    item.Nodes = new List<Node>();
                     TalentGrid itemTalentGrid = characterInventory.TalentGrids.FirstOrDefault(x=>x.GridHash == item.TalentGridHash);
-
+               
                     if (itemTalentGrid != null)
                     {
                         foreach (var node in itemTalentGrid.Nodes)
                         {
-                            if (node.Steps.Any())
-                            {
-                                foreach (var step in node.Steps)
-                                {
-                                    foreach (var perkHash in step.PerkHashes)
-                                    {
-                                        Item equippable = characterInventory.Equippable.FirstOrDefault(x=>x.Perks.Any(h=>h.PerkHash == perkHash));
-                                        if (equippable != null)
-                                        {
-                                            foreach (var perk in equippable.Perks)
-                                            {
-                                                var definition = characterInventory.Perks.FirstOrDefault(x => x.PerkHash == perk.PerkHash);
-                                                if (definition != null)
-                                                {
-                                                    perk.DisplayName = definition.DisplayName;
-                                                    perk.DisplayDescription = definition.DisplayDescription;
-                                                    perk.DisplayIcon = definition.DisplayIcon;
-                                                    perk.IsDisplayable = definition.IsDisplayable;
-                                                }
-                                                item.Perks.Add(perk);
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+                            item.Nodes.Add(node);
                         }
                     }
                 }

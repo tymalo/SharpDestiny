@@ -122,6 +122,7 @@ namespace SharpDestiny.Destiny.Model
         {
             Stats = new List<Stat>();
             Perks = new List<Perk>();
+            Nodes = new List<Node>();
 
             ItemHash = j["itemHash"].Value<string>();
             ItemName = j["itemName"] != null ? j["itemName"].Value<string>() : null;

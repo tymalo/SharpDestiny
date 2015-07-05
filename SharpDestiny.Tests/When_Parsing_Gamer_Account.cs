@@ -21,10 +21,17 @@ namespace SharpDestiny.Tests
         public static void MyClassInitialize(TestContext testContext)
         {
             DestinyPlatform = new DestinyPlatform();
-            DisplayName = "GameCompanion";
-            MembershipId = "4611686018428828459";
-            CharcaterId = "2305843009216514616";
             MembershiType = 2;
+
+            ////GameCompanion
+            //DisplayName = "GameCompanion";
+            //MembershipId = "4611686018428828459";
+            //CharcaterId = "2305843009216514616";
+
+            //SuperG00dAdvice
+            DisplayName = "SuperG00dAdvice";
+            MembershipId = "4611686018438970787";
+            CharcaterId = "2305843009264111518";
         }
 
         [TestMethod]
@@ -62,8 +69,16 @@ namespace SharpDestiny.Tests
         public void Will_Load_Character_Items_With_Perks()
         {
             CharacterInventoryResponse characterInventory = DestinyPlatform.GetCharacterInventory(MembershipId, CharcaterId).Result;
-            List<Item> primaries = DestinyPlatform.FindCharacterItemsByBucketName(characterInventory, DestinyBucketNames.PrimaryWeapons).ToList();
-            Assert.IsTrue(primaries.Any(x => x.Perks.Count > 0 && x.Perks.Any(d=>d.DisplayDescription != null) && x.Perks.Count > 2));
+            List<Item> primaries = DestinyPlatform.FindCharacterItemsByBucketName(characterInventory, DestinyBucketNames.HeavyWeapons).ToList();
+            Assert.IsTrue(primaries.Any(x => x.Perks.Count >0 ));
+        }
+
+        [TestMethod]
+        public void Will_Load_Character_Items_With_Steps()
+        {
+            CharacterInventoryResponse characterInventory = DestinyPlatform.GetCharacterInventory(MembershipId, CharcaterId).Result;
+            List<Item> primaries = DestinyPlatform.FindCharacterItemsByBucketName(characterInventory, DestinyBucketNames.HeavyWeapons).ToList();
+            Assert.IsTrue(primaries.Any(x => x.Nodes.Count > 0 && x.Nodes.Any(n=>n.Steps.Count >0)));
         }
     }
 }

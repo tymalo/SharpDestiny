@@ -27,6 +27,12 @@ namespace SharpDestiny.Destiny.Model
         [DataMember(Name = "isDisplayable")]
         public bool IsDisplayable { get; set; }
 
+        public string InteractionDescription { get; set; }
+
+        public Perk()
+        {
+        }
+
         public Perk(JObject j)
         {
             PerkHash = j["perkHash"] != null ? j["perkHash"].Value<string>() : null;
