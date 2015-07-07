@@ -61,7 +61,7 @@
     <Compile Include="Destiny\Enums\DestinyItemTier.cs" />
     <Compile Include="Destiny\Enums\DestinyItemType.cs" />
     <Compile Include="Destiny\Enums\DestinySpecialItemType.cs" />
-    <Compile Include="Destiny\Enums\DestinyWeaponsSlot.cs" />
+    <Compile Include="Destiny\Enums\DestinyWeaponSlot.cs" />
     <Compile Include="Destiny\Model\ActivationRequirement.cs" />
     <Compile Include="Destiny\Model\Bucket.cs" />
     <Compile Include="Destiny\Model\DestinyAccountCharacters.cs" />
